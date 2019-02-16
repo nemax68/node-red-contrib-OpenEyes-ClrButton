@@ -1,0 +1,23 @@
+{
+	"dependencies": {
+		"posix-mq": "1.1.2"
+	},
+	"name"         : "openeyes-clrbutton",
+	"version"      : "0.0.1",
+	"description"  : "Delete button on open-eyes LCD",
+	"repository" : {
+		"type": "git",
+		"url": "https://github.com/nemax68/node-red-contrib-OpenEyes-ClrButton"
+	},
+	"license": "GPL-3.0-or-later",
+	"keywords": [ "node-red", "contrib", "OpenEyes", "clr-button" ],
+	"node-red"     : {
+		"nodes": {
+			"clr-button": "clrbutton/clrbutton.js"
+		}
+	},
+	"author": {
+		"name": "Massimiliano Negretti",
+		"email": "massimiliano.negretti@open-eyes.it"
+	}
+}
