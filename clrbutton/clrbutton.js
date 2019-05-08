@@ -22,28 +22,47 @@ module.exports = function (RED) {
 
 	function GuiClrButton(config) {
 		RED.nodes.createNode(this,config);
-		this.bid = Number(config.bid);
-
-		var posixmq = new PosixMQ();
+        this.name = config.name;
+        this.cmd = config.cmd;
+        this.queue = '/gui_cmd';
 		var node = this;
-		var msg;
-		var n;
-		var send = false;
 
-		node.on('input', function(msg) {
-			var str;
-			var payload=msg.payload;
-			var n;
+        node.on('input', function(msg) {
+            var posixmq = new PosixMQ();
 
-			posixmq.open({ name: '/gui_cmd',create: true,mode: '0777',maxmsgs: 10, msgsize: 256 });
+            try{
 
-			str = "BUTTOFF," + node.bid.toString() + ",END";
+                switch (node.cmd) {
+                case "1":
+                    var type = "delbutton";
+                    break;
+                case "2":
+                    var type = "delkeypad";
+                    break;
+                default:
+                    var type = "none";
+                }
 
-			n = posixmq.push(str);
+                var obj = {
+                    type: type,
+                    name: node.name
+                };
 
-			posixmq.close();
+                var strJSON = JSON.stringify(obj);
 
-		});
+                console.log(strJSON);
+
+                posixmq.open({ name: node.queue, create: false });
+                posixmq.push(strJSON);
+                posixmq.close();
+                node.status({fill: "green", shape: "dot", text: node.queue.toString()});
+            }
+            catch(err){
+                console.error(err);
+                node.status({fill: "red", shape: "dot", text: node.queue.toString()});
+            }
+
+        });
 
 	}
 

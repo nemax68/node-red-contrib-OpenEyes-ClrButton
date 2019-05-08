@@ -20,12 +20,12 @@
         category: 'OpenEyes',
         color: '#a6bbcf',
         defaults: {
-			bid: {value:"1"},
+            cmd: {value:"1"},
             name: {value:""}    //  along with default values.
        	},
         inputs:1,
         outputs:0,
-        icon: "trash-symbol.png",
+        icon: "clrbutton.png",
 	    label: function() {     // sets the default label contents
             return this.name||this.topic||"clr-button";
         },
@@ -37,17 +37,14 @@
 
 <script type="text/x-red" data-template-name="clr-button">
 
-	<div class="form-row">
-		<label for="node-input-bid"><i class="icon-tag"></i> Button id</label>
-		<select type="text" id="node-input-bid" style="width:70%;">
-            <option value="1">BUTTON 1</option>
-            <option value="2">BUTTON 2</option>
-            <option value="3">BUTTON 3</option>
-            <option value="4">BUTTON 4</option>
-            <option value="5">BUTTON 5</option>
-            <option value="6">BUTTON 6</option>
+    <div class="form-row">
+        <label for="node-input-cmd"><i class="icon-tag"></i> Button </label>
+        <select type="text" id="node-input-cmd" style="width:70%;">
+            <option value="1">Del button</option>
+            <option value="2">Del keypad</option>
         </select>
-	</div>
+    </div>
+
 	<div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
