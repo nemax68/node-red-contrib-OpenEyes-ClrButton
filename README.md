@@ -3,7 +3,7 @@ Description
 
 ![OpenEyes-ClrButton-flow](https://github.com/nemax68/node-red-contrib-OpenEyes-ClrButton/blob/master/images/flow.png)
 
-A [node.js](http://nodejs.org/) library for create/modify buttons on OpenEyes LCD display
+A [node.js](http://nodejs.org/) library for creating/modifying buttons on OpenEyes' LCD display
 
 Requirements
 ============
