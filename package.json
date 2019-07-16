@@ -3,7 +3,7 @@
 		"posix-mq": "^1.1.2"
 	},
 	"name": "openeyes-clrbutton",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "Delete button on open-eyes LCD",
 	"repository": {
 		"type": "git",
